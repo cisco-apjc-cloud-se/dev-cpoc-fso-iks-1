@@ -96,10 +96,10 @@ module "fso" {
       enabled = true
       namespace_regex = "coolsox"
       default_appname = "coolsox-rw"
-      java = {}
-      dotnetcore = {}
-      nodejs = {}
-      imageinfo = {}
+      # java = {}
+      # dotnetcore = {}
+      # nodejs = {}
+      # imageinfo = {}
     }
   }
 }

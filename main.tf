@@ -99,6 +99,7 @@ module "fso" {
       java = {}
       dotnetcore = {}
       nodejs = {}
+      imageinfo = {}
     }
   }
 }

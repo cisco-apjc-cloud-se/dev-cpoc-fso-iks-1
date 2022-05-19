@@ -55,7 +55,7 @@ provider "helm" {
 module "fso" {
   source = "github.com/cisco-apjc-cloud-se/terraform-helm-fso"
 
-  iwo {
+  iwo = {
     enabled                 = true
     namespace               = "iwo"
     cluster_name            = "iks-cpoc-syd-demo-1"
@@ -65,12 +65,12 @@ module "fso" {
     dc_image_version        = "1.0.9-110"
   }
 
-  appd {
+  appd = {
     enabled = true
-    kubernetes {
+    kubernetes = {
       namespace = "appd"
     }
-    account {
+    account = {
       name          = var.appd_account_name       # Passed from Workspace Variable
       key           = var.appd_account_key        # Passed from Workspace Variable
       otel_api_key  = var.appd_otel_api_key       # Passed from Workspace Variable
@@ -80,19 +80,19 @@ module "fso" {
     install_metrics_server  = true
     install_cluster_agent   = true
     install_machine_agents  = true
-    infraviz {
+    infraviz = {
       enable_container_hostid = true
       enable_dockerviz        = true
       enable_serverviz        = true
       stdout_logging          = true
     }
-    netviz {
+    netviz = {
       enabled = true
     }
-    cluster {
+    cluster = {
       montior_namespace_regex = ".*"
     }
-    autoinstrument {
+    autoinstrument = {
       enabled = true
       namespace_regex = "coolsox"
       default_appname = "coolsox-rw"

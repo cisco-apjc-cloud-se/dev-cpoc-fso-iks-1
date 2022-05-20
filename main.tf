@@ -61,7 +61,7 @@ module "fso" {
     cluster_name            = "iks-cpoc-syd-demo-1"
     chart_url               = var.iwo_chart_url  # Passed from Workspace Variable
     server_version          = "8.5"
-    collector_image_version = "8.5.3"
+    collector_image_version = "8.5.1"
     dc_image_version        = "1.0.9-110"
   }
 

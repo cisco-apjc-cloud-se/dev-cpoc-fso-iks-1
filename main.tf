@@ -13,6 +13,10 @@ terraform {
     kubernetes = {
       source = "hashicorp/kubernetes"
     }
+    thousandeyes = {
+      source = "william20111/thousandeyes"
+      # source = "cgascoig/cgascoig/thousandeyes"   # this is a custom build of the william20111/thousandeyes provider with a bug fixed (see https://github.com/william20111/terraform-provider-thousandeyes/issues/59)
+    }
   }
 }
 
@@ -51,9 +55,40 @@ provider "helm" {
     client_key             = base64decode(local.kube_config.users[0].user.client-key-data)
   }
 }
+provider "thousandeyes" {
+  token = var.te_token
+}
 
 module "fso" {
   source = "github.com/cisco-apjc-cloud-se/terraform-helm-fso"
+
+  thousandeyes = {
+    enabled = true
+    http_tests = {
+      fso-demo-app = {
+        name                    = "fso-demo-app"
+        interval                = 60
+        url                     = "http://fso-demo-app.cisco.com"
+        content_regex           = ".*"
+        network_measurements    = true # 1
+        mtu_measurements        = true # 1
+        bandwidth_measurements  = false # 0
+        bgp_measurements        = true # 1
+        use_public_bgp          = true # 1
+        num_path_traces         = 0
+        agents                  = [
+          # "Adelaide, Australia",
+          "Auckland, New Zealand",
+          "Brisbane, Australia",
+          "Melbourne, Australia",
+          "Melbourne, Australia (Azure australiasoutheast)",
+          "Perth, Australia",
+          "Sydney, Australia",
+          "Wellington, New Zealand"
+        ]
+      }
+    }
+  }
 
   iwo = {
     enabled                 = true

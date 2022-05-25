@@ -77,14 +77,14 @@ module "fso" {
         use_public_bgp          = true # 1
         num_path_traces         = 0
         agents                  = [
-          # "Adelaide, Australia",
-          "Auckland, New Zealand",
-          "Brisbane, Australia",
+          ## "Adelaide, Australia",
+          # "Auckland, New Zealand",
+          # "Brisbane, Australia",
           "Melbourne, Australia",
-          "Melbourne, Australia (Azure australiasoutheast)",
-          "Perth, Australia",
+          # "Melbourne, Australia (Azure australiasoutheast)",
+          # "Perth, Australia",
           "Sydney, Australia",
-          "Wellington, New Zealand"
+          # "Wellington, New Zealand"
         ]
       }
     }

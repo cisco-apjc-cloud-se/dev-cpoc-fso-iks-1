@@ -57,6 +57,7 @@ provider "helm" {
 }
 provider "thousandeyes" {
   token = var.te_token
+  account_group_id = "richwats"
 }
 
 module "fso" {

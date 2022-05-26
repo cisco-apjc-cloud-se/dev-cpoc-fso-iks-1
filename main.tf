@@ -56,8 +56,9 @@ provider "helm" {
     client_key             = base64decode(local.kube_config.users[0].user.client-key-data)
   }
 }
+
 provider "thousandeyes" {
-  token = var.te_token # Passed from Workspace Variable
+  token = "test" # Passed from Workspace Variable
 }
 
 module "fso" {

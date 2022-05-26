@@ -58,7 +58,7 @@ provider "helm" {
 }
 
 provider "thousandeyes" {
-  token = "test" # Passed from Workspace Variable
+  token = var.te_token # Passed from Workspace Variable
 }
 
 module "fso" {

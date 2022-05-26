@@ -24,7 +24,7 @@ variable "appd_account_password" {
   type = string
 }
 
-## ThousandEyes Variables ##
-variable "te_token" {
-  type = string
-}
+# ## ThousandEyes Variables ##
+# variable "te_token" {
+#   type = string
+# }

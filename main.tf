@@ -66,7 +66,7 @@ module "fso" {
 
   thousandeyes = {
     enabled = true
-    http_tests = {
+    http_tests2 = {
       fso-demo-app = {
         name                    = "fso-demo-app"
         interval                = 60

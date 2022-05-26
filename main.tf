@@ -59,11 +59,15 @@ provider "thousandeyes" {
   token = var.te_token # Passed from Workspace Variable
 }
 
+data "thousandeyes_agent" "test" {
+  agent_name = "Sydney, Australia"
+}
+
 module "fso" {
   source = "github.com/cisco-apjc-cloud-se/terraform-helm-fso"
 
   thousandeyes = {
-    enabled = true
+    enabled = false
     http_tests = {
       fso-demo-app = {
         name                    = "fso-demo-app"

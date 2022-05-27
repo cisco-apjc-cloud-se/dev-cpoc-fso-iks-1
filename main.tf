@@ -57,10 +57,6 @@ provider "helm" {
   }
 }
 
-# provider "thousandeyes" {
-#   token = var.te_token # Passed from Workspace Variable
-# }
-
 module "fso" {
   source = "github.com/cisco-apjc-cloud-se/terraform-helm-fso"
 

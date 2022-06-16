@@ -118,6 +118,7 @@ module "fso" {
       enabled = true
     }
     cluster = {
+      app_name = "iks-cpoc-demo-1"
       montior_namespace_regex = ".*"
     }
     autoinstrument = {

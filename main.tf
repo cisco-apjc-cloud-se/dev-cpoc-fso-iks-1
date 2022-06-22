@@ -97,6 +97,7 @@ module "fso" {
     enabled = true
     kubernetes = {
       namespace = "appd"
+      release_name = "iks-cpoc-demo-1" # o2 adds "appdynamics-operator" suffix
     }
     account = {
       name          = var.appd_account_name       # Passed from Workspace Variable
@@ -105,30 +106,41 @@ module "fso" {
       username      = var.appd_account_username   # Passed from Workspace Variable
       password      = var.appd_account_password   # Passed from Workspace Variable
     }
-    install_metrics_server  = true
-    install_cluster_agent   = true
-    install_machine_agents  = true
-    infraviz = {
-      enable_container_hostid = true
-      enable_dockerviz        = true
-      enable_serverviz        = true
-      stdout_logging          = true
+    metrics_server = {
+      install_service = true
+      release_name  = "appd-metrics-server"
     }
-    netviz = {
-      enabled = true
+    machine_agent = {
+      install_service = true
+      infraviz = {
+        enable_container_hostid = true
+        enable_dockerviz = true
+        enable_serverviz = true
+        enable_masters = false
+        stdout_logging = true
+      }
+      netviz = {
+        enabled = true
+      }
     }
-    cluster = {
+    cluster_agent = {
+      install_service = true
       app_name = "iks-cpoc-demo-1"
-      montior_namespace_regex = ".*"
+      monitor_namespace_regex = "coolsox"
     }
     autoinstrument = {
       enabled = true
       namespace_regex = "coolsox"
       default_appname = "coolsox-rw"
-      # java = {}
-      # dotnetcore = {}
-      # nodejs = {}
-      # imageinfo = {}
+      java = {
+        enabled = true
+      }
+      dotnetcore = {
+        enabled = true
+      }
+      nodejs = {
+        enabled = true
+      }
     }
   }
 }

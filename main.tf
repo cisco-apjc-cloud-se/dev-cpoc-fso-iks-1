@@ -104,6 +104,7 @@ module "fso" {
         machineagent = {}
         machineagentwin = {}
         netviz = {}
+      }
     }
     account = {
       name          = var.appd_account_name       # Passed from Workspace Variable

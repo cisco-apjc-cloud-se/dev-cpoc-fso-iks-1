@@ -98,6 +98,12 @@ module "fso" {
     kubernetes = {
       namespace = "appd"
       release_name = "iks-cpoc-demo-1" # o2 adds "appdynamics-operator" suffix
+      imageinfo = {
+        clusteragent = {}
+        operator = {}
+        machineagent = {}
+        machineagentwin = {}
+        netviz = {}
     }
     account = {
       name          = var.appd_account_name       # Passed from Workspace Variable

@@ -94,7 +94,7 @@ module "fso" {
   }
 
   appd = {
-    enabled = true
+    enabled = false
     kubernetes = {
       namespace = "appd"
       release_name = "iks-cpoc-demo-1" # o2 adds "appdynamics-operator" suffix
@@ -102,7 +102,7 @@ module "fso" {
         clusteragent = {}
         operator = {}
         machineagent = {
-          tag = "22.5.0"
+          # tag = "22.5.0"
         }
         machineagentwin = {}
         netviz = {}

@@ -102,7 +102,7 @@ module "fso" {
         clusteragent = {}
         operator = {}
         machineagent = {
-          # tag = "22.5.0"
+          tag = "22.5.0"
         }
         machineagentwin = {}
         netviz = {}

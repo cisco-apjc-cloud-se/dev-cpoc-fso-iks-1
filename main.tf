@@ -94,7 +94,7 @@ module "fso" {
   }
 
   appd = {
-    enabled = false
+    enabled = true
     kubernetes = {
       namespace = "appd"
       release_name = "iks-cpoc-demo-1" # o2 adds "appdynamics-operator" suffix

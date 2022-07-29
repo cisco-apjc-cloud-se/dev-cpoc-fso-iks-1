@@ -101,7 +101,9 @@ module "fso" {
       imageinfo = {
         clusteragent = {}
         operator = {}
-        machineagent = {}
+        machineagent = {
+          tag = "22.5.0"
+        }
         machineagentwin = {}
         netviz = {}
       }
